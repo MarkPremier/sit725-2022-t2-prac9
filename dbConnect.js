@@ -1,17 +1,40 @@
-require("dotenv").config();
+/// DATABASE Connections
+//database connection
+const MongoClient = require('mongodb').MongoClient;
 
-const MongoClient = require("mongodb").MongoClient;
-const uri =
-  "mongodb+srv://s222115089:Admin@mongotest.sidnbkn.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const uri =  "mongodb+srv://s222115089:Admin@mongotest.sidnbkn.mongodb.net/?retryWrites=true&w=majority";
+let mongoClient = new MongoClient(uri, { useNewUrlParser: true,useUnifiedTopology: true });
 
-client.connect((err, db) => {
-  if (!err) {
-    console.log("MongoDB Connected");
-  } else {
-    console.log("DB Error: ", err);
-    process.exit(1);
-  }
-});
+let projectsCollection;
 
-exports.MongoClient = client;
+mongoClient.connect((err,db) => {
+    // projectsCollection = mongoClient.db("deakinCrowds").collection("projects");
+     if(!err){
+       console.log('Connected to MongoDB')
+     }else{
+       console.log('[error]',err)
+     }
+ });
+ 
+
+exports.mongoClient = mongoClient;
+
+// this function is used to open the connection 
+/*const dbConnect = ()=>{
+    mongoClient.connect((err,db) => {
+        projectsCollection = mongoClient.db("deakinCrowds").collection("projects");
+        if(!err){
+          console.log('Database Connected')
+        }else{
+          console.log('[error]',err)
+        }
+    });
+    
+}*/
+
+
+ 
+
+
+
+

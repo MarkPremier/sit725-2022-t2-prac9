@@ -1,14 +1,15 @@
 {
-  "name": "sit725-2021-t2-prac4",
+  "name": "sit725-2021-t2-prac6",
   "version": "1.0.0",
-  "description": "sit 725 week 4 prac",
+  "description": "sit 725 week 6 prac",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarkPremier/Practical-Five.git"
+    "url": "git+https://github.com/MarkPremier/sit725-2021-t2-prac6.git"
   },
   "keywords": [
     "Nodejs",
@@ -21,13 +22,21 @@
   "author": "Mark Premier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MarkPremier/Practical-Five/issues"
+    "url": "https://github.com/MarkPremier/sit725-2021-t2-prac6/issues"
   },
-  "homepage": "https://github.com/MarkPremier/Practical-Five#readme",
+  "homepage": "https://github.com/MarkPremier/sit725-2021-t2-prac6#readme",
   "dependencies": {
-    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "cf-deployment-tracker-client": "*",
+    "chai": "^4.3.4",
+    "commander": "^2.6.0",
     "dotenv": "^16.0.1",
-    "express": "^4.17.1",
-    "mongodb": "^4.8.1"
+    "express": "^4.18.1",
+    "http-post": "^0.1.1",
+    "http-proxy": "^1.8.1",
+    "mocha": "^9.1.0",
+    "mongodb": "^3.6.6",
+    "request": "^2.88.2",
+    "socket.io": "^2.4.1"
   }
 }
