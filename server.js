@@ -2,13 +2,10 @@ let express = require("express");
 let app = express();
 let dbConnect = require("./dbConnect");
 
-//dbConnect.dbConnect()
-//var app = require('express')();
+
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
-//const MongoClient = require('mongodb').MongoClient;
 
-// routes
 let projectsRoute = require('./routes/projects')
 
 
@@ -33,17 +30,23 @@ app.get('/addTwoNumbers/:firstNumber/:secondNumber', function(req,res,next){
   else { res.json({result: result, statusCode: 200}).status(200) } 
 })
 
-//socket test
+
 io.on('connection', (socket) => {
   console.log('a user connected', socket.id);
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
+
   setInterval(()=>{
-    socket.emit('number', parseInt(Math.random()*10));
+    socket.emit('number', new Date().toISOString());
   }, 1000);
 
+  // setInterval(()=>{
+  //   socket.emit('number', parseInt(Math.random()*10));
+  // }, 1000);
+
 });
+
 
 
 http.listen(port,()=>{
